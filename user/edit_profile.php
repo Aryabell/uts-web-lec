@@ -37,7 +37,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             // Hash password baru
             $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
         } else {
-            $error_message = "Password saat ini salah.";
+            $error_message = "The current password is incorrect.";
         }
     }
 
@@ -54,9 +54,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if ($stmt->execute()) {
             $_SESSION['user_name'] = $name; // Update session username
-            $success_message = "Profil berhasil diperbarui.";
+            $success_message = "Profile updated successfully.";
         } else {
-            $error_message = "Terjadi kesalahan saat memperbarui profil.";
+            $error_message = "An error occurred while updating the profile.";
         }
     }
 }
@@ -129,25 +129,25 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <form method="POST" class="bg-white p-6 rounded-lg shadow">
             <div class="mb-4">
-                <label for="name" class="block text-sm font-medium text-gray-700">Nama</label>
+                <label for="name" class="block text-sm font-medium text-gray-700">Name :</label>
                 <input type="text" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" id="name" name="name" value="<?php echo htmlspecialchars($user_info['name']); ?>" required>
             </div>
             <div class="mb-4">
-                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <label for="email" class="block text-sm font-medium text-gray-700">Email :</label>
                 <input type="email" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" id="email" name="email" value="<?php echo htmlspecialchars($user_info['email']); ?>" required>
             </div>
             <div class="mb-4">
-                <label for="current_password" class="block text-sm font-medium text-gray-700">Password Saat Ini</label>
+                <label for="current_password" class="block text-sm font-medium text-gray-700">Current Password :</label>
                 <input type="password" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" id="current_password" name="current_password" required>
             </div>
             <div class="mb-4">
-                <label for="new_password" class="block text-sm font-medium text-gray-700">Password Baru (biarkan kosong jika tidak ingin mengubah)</label>
+                <label for="new_password" class="block text-sm font-medium text-gray-700">New Password (leave blank if you don't want to change) :</label>
                 <input type="password" class="mt-1 block w-full p-3 border border-gray-300 rounded-lg focus:ring-indigo-500 focus:border-indigo-500" id="new_password" name="new_password">
             </div>
             <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-300">Perbarui Profil</button>
         </form>
         <div class="mt-3">
-            <a href="profile.php" class="text-indigo-600 hover:underline">Kembali ke Profil</a>
+            <a href="profile.php" class="text-indigo-600 hover:underline">Return to Profile</a>
         </div>
     </div>
 
