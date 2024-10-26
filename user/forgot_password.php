@@ -22,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         // Generate token
         $token = bin2hex(random_bytes(50)); // Token unik
 
-        // Set expiration time (1 hour from now)
+        // Set expiration time (15 minutes from now)
         $expires_at = date("Y-m-d H:i:s", strtotime('+15 minutes'));
 
         // Insert token into password_resets table
@@ -38,10 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         try {
             // Server settings
             $mail->isSMTP();
-            $mail->Host = 'smtp.gmail.com'; // Host SMTP Anda
+            $mail->Host = 'smtp.gmail.com'; 
             $mail->SMTPAuth = true;
-            $mail->Username = 'eventify.noreplys@gmail.com'; // Email SMTP Anda
-            $mail->Password = 'hprd peco syck cldj'; // Password SMTP Anda
+            $mail->Username = 'eventify.noreplys@gmail.com'; 
+            $mail->Password = 'hprd peco syck cldj'; 
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
             $mail->Port = 465;
 
